@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaBagShopping } from "react-icons/fa6";
-import Logo from './Logo';
+import Logo from '../Logo';
 import Nav from './Nav';
 function Header() {
     
