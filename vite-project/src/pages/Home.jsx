@@ -1,10 +1,13 @@
 import React from 'react'
-import HeroSection from '../components/HeroSection'
+import {HeroSection, Trusted} from '../components'
+import { Services } from '../components'
 function Home() {
   return (
-    <div>
+    <>
       <HeroSection/>
-    </div>
+      <Services/>
+      <Trusted/>
+    </>
   )
 }
 
