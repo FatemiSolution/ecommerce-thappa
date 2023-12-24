@@ -5,6 +5,9 @@ import Services from "./Services";
 import Header from "./header/Header";
 import Nav from "./header/Nav";
 import Trusted from "./Trusted";
+import Input from "./Input";
+import Email from "./Email";
+import TextArea from "./TextArea";
 export{
     Button,
     HeroSection,
@@ -13,4 +16,7 @@ export{
     Header,
     Nav,
     Trusted,
+    Input,
+    Email,
+    TextArea,
 }

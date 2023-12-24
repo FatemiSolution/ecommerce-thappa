@@ -5,20 +5,20 @@ function Button({
     bgColor='bg-blue-400',
     textColor='text-white',
     navigates='',
-    type='button',
+    type,
     className="",
     ...props
 }) {
     
     return (
         <>
-        <NavLink to={`/${navigates}`}>
+        {/* <NavLink to={`/${navigates}`}> */}
 
-        <button className={`px-3 py-2 rounded ${bgColor} ${textColor} ${className}`} {...props }>
+        <button  className={`px-3 py-2 rounded ${bgColor} ${textColor} ${className}`}  {...props }>
             {children}
             
         </button>
-        </NavLink>
+        {/* </NavLink> */}
       
         </>
   )
