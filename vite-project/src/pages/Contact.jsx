@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Email, TextArea,Button } from '../components'
+import { Email,} from '../components'
 import { useForm, ValidationError } from '@formspree/react';
 function Contact() {
   const [state, handleSubmit] = useForm("xdoqnbjw");
@@ -17,49 +17,6 @@ function Contact() {
     </div>
     <div className='flex justify-center items-center'>
           <Email/>
-          {/* <form action="https://formspree.io/f/xdoqnbjw" method='POST' className='flex  justify-center flex-col items-start'>
-          <input className={`m-3 p-1 mt-5 pl-2 text-base border border-gray-300 rounded-lg outline-0`} type='text'  placeholder='username:' name='username' required autoComplete='off'   />
-          
-          <input className={`m-3 p-1 mt-5 pl-2 text-base border border-gray-300 rounded-lg outline-0`} type='text'  placeholder='Email Address:' name='Address' required autoComplete='off'   />
-          <textarea name='msg' className=' m-3 p-1 mt-5 pl-2 text-base border border-gray-300 rounded-lg outline-0' placeholder='Enter your message' required autoComplete='off' cols={30} rows={10}/>
-          <button className={`px-3 py-2 rounded `} type={'submit'}>
-            Submit
-            
-        </button>
-          </form> */}
-            {/* <form onSubmit={handleSubmit}>
-              <Input id='name' label='Name' type='text' name='name'/> 
-              <ValidationError 
-        prefix="Name" 
-        field="name"
-        errors={state.errors}
-      />
-      <label htmlFor="email">
-        Email Address
-      </label>
-      <Input
-        id="email"
-        type="email" 
-        name="email"
-      />
-      <ValidationError 
-        prefix="Email" 
-        field="email"
-        errors={state.errors}
-      />
-      <TextArea
-        id="message"
-        name="message"
-      />
-      <ValidationError 
-        prefix="Message" 
-        field="message"
-        errors={state.errors}
-      />
-      <Button type="submit" disabled={state.submitting}>
-        Submit
-      </Button>
-    </form> */}
     </div>
     </>
   )

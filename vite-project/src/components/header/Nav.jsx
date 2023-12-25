@@ -11,11 +11,11 @@ const Nav =()=>{
     function NavLinks() {
       return (
         <>
-        <NavLink className={'py-2 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar}  to={'/'}>Home</NavLink>
-        <NavLink className={'py-2 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar}  to={'/about'}>About</NavLink>
-        <NavLink  className={'py-2 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar} to={'/products'}>Products</NavLink>
-        <NavLink className={'py-2 hover:text-blue-500 duration-200'}  onClick={isOpen && toggleNavbar} to={'/contact'}>Contact</NavLink>
-        <NavLink className={'relative py-2 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar} to={'/cart'}>
+        <NavLink className={'py-2 px-1 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar}  to={'/'}>Home</NavLink>
+        <NavLink className={'py-2 px-1 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar}  to={'/about'}>About</NavLink>
+        <NavLink  className={'py-2 px-1 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar} to={'/products'}>Products</NavLink>
+        <NavLink className={'py-2 px-1 hover:text-blue-500 duration-200'}  onClick={isOpen && toggleNavbar} to={'/contact'}>Contact</NavLink>
+        <NavLink className={'relative py-2 px-1 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar} to={'/cart'}>
                    <FaBagShopping className=''/>
                 <span className='absolute bottom-4 left-3 text-xs'>10</span>
                </NavLink>

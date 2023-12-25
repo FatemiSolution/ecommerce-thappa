@@ -8,7 +8,8 @@ import Trusted from "./Trusted";
 import Input from "./Input";
 import Email from "./Email";
 import TextArea from "./TextArea";
-export{
+import Footer from "./Footer";
+export {
     Button,
     HeroSection,
     Logo,
@@ -19,4 +20,5 @@ export{
     Input,
     Email,
     TextArea,
+    Footer,
 }
