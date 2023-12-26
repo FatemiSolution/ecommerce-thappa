@@ -14,7 +14,7 @@ function HeroSection({
         </div>
         <div className='md:w-1/2 items-center'>
             <figure>
-                 <img className='w-[100%] ' src="public\images\hero.jpg" alt="hero img" />
+                 <img className='w-[100%] ' src="\images\hero.jpg" alt="hero img" />
             </figure>
         </div>
     </div>

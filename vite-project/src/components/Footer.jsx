@@ -46,7 +46,7 @@ function Footer() {
             </div>
         </footer>
         <hr />
-        <div className='grid grid-cols-2 gap-20 bg-blue-800 flex justify-center lg:px-[30%] px-[20%] pt-2 pb-4'>
+        <div className=' grid grid-cols-2 gap-20 bg-blue-800 flex justify-center lg:px-[30%] px-[20%] pt-2 pb-4'>
             <div>@{new Date().getFullYear()} Fatemi Solution. All right Reserved</div>
             <div className='flex flex-col'>
                 <span>PRIVACY POLICY</span>
