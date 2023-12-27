@@ -3,17 +3,13 @@ import {HeroSection, Trusted} from '../components'
 import { Services } from '../components'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProducts } from '../store/productSlice'
+import FeaturedProduct from '../components/FeaturedProduct'
 function Home() {
-  const dispatch = useDispatch();
-  const data = useSelector(state => state.product);
-  useEffect(() => {
-    dispatch(getAllProducts())
-  
-  }, [])
-  console.log(data)
+
   return (
     <>
       <HeroSection/>
+        <FeaturedProduct/>
       <Services/>
       <Trusted/>
     </>
