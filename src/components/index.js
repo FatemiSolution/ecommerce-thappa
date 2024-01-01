@@ -9,6 +9,9 @@ import Input from "./Input";
 import Email from "./Email";
 import TextArea from "./TextArea";
 import Footer from "./Footer";
+import FormatCurrency from "./formatCurrency";
+import MyImages from "./MyImages";
+import ProductDetails from "./ProductDetails";
 export {
     Button,
     HeroSection,
@@ -21,4 +24,7 @@ export {
     Email,
     TextArea,
     Footer,
+    FormatCurrency,
+    MyImages,
+    ProductDetails,
 }
