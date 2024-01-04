@@ -14,6 +14,7 @@ import MyImages from "./MyImages";
 import ProductDetails from "./ProductDetails";
 import RatingStar from "./RatingStar";
 import AddToCart from "./AddToCart";
+import CartAmountToggle from "./CartAmountToggle";
 export {
     Button,
     HeroSection,
@@ -31,4 +32,5 @@ export {
     ProductDetails,
     RatingStar,
     AddToCart,
+    CartAmountToggle,
 }
