@@ -42,38 +42,9 @@ function SingleProduct() {
       <span >&nbsp;{ name}</span>
     </nav>
     
-    <div className='grid grid-cols-2 lg:px-52 justify-center gap-5'>
+    <div className='flex md:flex-row flex-col lg:px-52  justify-center lg:gap-8  gap-5'>
        <MyImages images={image} />
-        {/* <div id='details' className='flex flex-col'>
-          <h1>{name}</h1>
-          <span>{stars}</span>
-          <span>{reviews}&nbsp;reviews</span>
-          <del><FormatCurrency number={(price +10000 )} /></del>
-          <h3 className='text-blue-400'>Deal Of the Day:<FormatCurrency number={(price)} /></h3>
-          <p className='text-justifyt-'>{description}</p>
-          <div className='flex justify-evenly'>
-                <div className='w-fit items-center justify-center flex flex-col'>
-                <FaTruck className='text-4xl' />
-                <span className='text-center'>Free Delivery</span>
-                </div>
-                <div className='w-fit items-center justify-center flex flex-col'>
-                <RiRefund2Line className='text-4xl w-fit p-0' />
-                <span className='text-center'>30 Days Replacement</span>
-                </div>
-                <div className='w-fit items-center justify-center flex flex-col'>
-                <TbTruckDelivery  className='text-4xl'/>
-                <span className='text-center'>Fast Delivery</span>
-                </div>
-                <div className='w-fit items-center justify-center flex flex-col'>
-                <IoShieldSharp  className='text-4xl'/>
-                <span className='text-center'>2 Years Warranty</span>
-                </div>
-          </div>
-          <p>Available: <span>{stock > 0 ? 'IN STOCK':"OUT OF STOCK"}</span></p>
-          <p>ID: {id}</p>
-          <p>Brand: {company}</p>
-        </div> */}
-        <ProductDetails company={company} description={description} id={id} name={name} price={price} reviews={reviews} stars={stars} stock={stock} />
+        <ProductDetails company={company} description={description} id={id} name={name} price={price} reviews={reviews} stars={stars} stock={stock} product ={details.product} />
     </div>
     </>
   )

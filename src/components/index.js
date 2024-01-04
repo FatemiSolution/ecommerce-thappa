@@ -12,6 +12,8 @@ import Footer from "./Footer";
 import FormatCurrency from "./formatCurrency";
 import MyImages from "./MyImages";
 import ProductDetails from "./ProductDetails";
+import RatingStar from "./RatingStar";
+import AddToCart from "./AddToCart";
 export {
     Button,
     HeroSection,
@@ -27,4 +29,6 @@ export {
     FormatCurrency,
     MyImages,
     ProductDetails,
+    RatingStar,
+    AddToCart,
 }
