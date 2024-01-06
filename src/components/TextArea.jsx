@@ -7,7 +7,7 @@ function TextArea({
     label,
     ...props
 },ref) {
-    {console.log(ref)}
+    // {console.log(ref)}
   return (
     <div className='flex'>
         {label &&  <label htmlFor="" className=' inline-block m-1 mt-4 font-sans text-base'  >{label}</label>}

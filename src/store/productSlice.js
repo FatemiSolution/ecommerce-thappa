@@ -5,7 +5,9 @@ import { useEffect } from "react";
 const API = 'https://api.pujakaitem.com/api/products?id=';
 const initialState = {
 products : [],
+
 featureProducts : [],
+filterProducts : [],
 loading : false,
 error :null,
 };
@@ -20,7 +22,7 @@ export const getAllProducts = createAsyncThunk('getproducts', async()=>{
 const productSlice = createSlice({
     name: 'products',
     initialState,
-    reducers:{},
+   
     // this is used to update the state as per the result of API
     extraReducers: (builder) => {
       builder.addCase(getAllProducts.pending,(state,action) =>{
@@ -30,13 +32,21 @@ const productSlice = createSlice({
             state.loading = false;
             state.products = action.payload;
             state.featureProducts = action.payload.filter((product)=>product.featured === true);
+          
+            
             
         });
        builder.addCase(getAllProducts.rejected,(state,action) =>{
             state.loading = false;
             state.error = true;
         });
-    }
+    },
+    reducers:{
+        fitering : (state,action) => {        
+                state.filterProducts = action.payload
+        },
+       
+    },
 })
-
+export const {fitering} = productSlice.actions
 export default productSlice.reducer;

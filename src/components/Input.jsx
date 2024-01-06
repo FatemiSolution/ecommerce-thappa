@@ -9,7 +9,7 @@ function Input({
 
 },ref) {
     // const id = useId();
-    {console.log(ref)}
+    // {console.log(ref)}
   return (
     <div className='flex items-center'>
     {label && <label id={id} className='inline-block m-1 mt-2 font-sans text-base'>
