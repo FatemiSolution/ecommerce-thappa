@@ -5,7 +5,8 @@ import { useEffect } from "react";
 const API = 'https://api.pujakaitem.com/api/products?id=';
 const initialState = {
 products : [],
-
+view: null,
+grid: false,
 featureProducts : [],
 filterProducts : [],
 loading : false,
@@ -45,8 +46,12 @@ const productSlice = createSlice({
         fitering : (state,action) => {        
                 state.filterProducts = action.payload
         },
+        view : (state,action) =>{
+            state.view = action.payload
+            // state.grid === false ? state.grid === true : state.grid = false;
+        },
        
     },
 })
-export const {fitering} = productSlice.actions
+export const {fitering,view} = productSlice.actions
 export default productSlice.reducer;

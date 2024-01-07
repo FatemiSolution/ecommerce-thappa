@@ -8,14 +8,7 @@ function FeaturedProduct() {
     const dispatch = useDispatch();
     // getting the state data 
   const data =  useSelector((state)=>state.product)
-  // const details = useSelector((state)=>state.productDetails)
-  // sending data to the extra reduucer and uploading to the product in the productSLice 
-    // useEffect(() => {
-    //   dispatch(getAllProducts())
-    //   // dispatch(getProductDetails())
-    // }, [])
-  //  console.log(data);
-  //  console.log(details)
+
    return (
     data.loading === false ? <div className='lg:px-56 px-5 py-5 bg-gray-300'>
         <p>CHECK NOW</p>
