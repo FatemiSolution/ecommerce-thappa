@@ -47,8 +47,8 @@ const productSlice = createSlice({
                 state.filterProducts = action.payload
         },
         view : (state,action) =>{
-            state.view = action.payload
-            // state.grid === false ? state.grid === true : state.grid = false;
+            // state.view = action.payload
+            state.grid = action.payload;
         },
        
     },

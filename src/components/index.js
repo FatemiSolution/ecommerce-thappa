@@ -17,6 +17,7 @@ import AddToCart from "./AddToCart";
 import CartAmountToggle from "./CartAmountToggle";
 import ListProduct from "./product/ListProduct";
 import HeadingProducts from "./product/HeadingProducts";
+import ListView from "./product/ListView";
 export {
     Button,
     HeroSection,
@@ -37,4 +38,5 @@ export {
     CartAmountToggle,
     ListProduct,
     HeadingProducts,
+    ListView,
 }

@@ -15,8 +15,8 @@ function Products() {
   return (
     <div className='flex lg:px-56'>
       <div className='w-[20%]'>Filters</div>
-      <div  className='w-[80%] grid grid-rows-2'>
-          <div><HeadingProducts/></div>        
+      <div  className='w-[80%] flex flex-col'>
+          <div className='h-[20%]'><HeadingProducts/></div>        
           <div><ListProduct/></div>
       </div>
     </div>

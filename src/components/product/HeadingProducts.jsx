@@ -9,7 +9,7 @@ function HeadingProducts() {
     console.log(data)
   return (
     <div>
-        <Button onClick={()=>dispatch(data.view == null || data.view == 'linear'? view('grid'):view('linear'))}/>
+        <Button onClick={()=>dispatch(view(!data.grid))}/>
     </div>
   )
 }
