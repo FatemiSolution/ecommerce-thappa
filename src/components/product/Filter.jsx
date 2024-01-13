@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch ,useSelector} from 'react-redux'
+import { TiTick } from "react-icons/ti";
 import { categorizor, companier, searching } from '../../store/productSlice';
 function Filter() {
   const data = useSelector((state)=>state.product)
@@ -47,6 +48,15 @@ function Filter() {
           <option key={ele} value={ele}>{ele}</option>
         ))}
       </select>
+      <p className='gap-2 flex items-center'>
+            Colors:
+            {uniqueColor.map((Pcolor, index) =>(
+                // {'&ensp;'}
+                <button key={index} className={`rounded-full opacity-60 hover:opacity-100 w-5 h-5 ${Pcolor == color?'opacity-[100%]':'' }`} style={{backgroundColor:Pcolor}} onClick={()=>setcolor(Pcolor)}>
+                    {Pcolor === color ?<TiTick className='text-white pl-1' />: null }
+                </button>
+            ))}
+        </p>
     </>
   )
 }

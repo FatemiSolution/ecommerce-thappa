@@ -81,6 +81,13 @@ const productSlice = createSlice({
         state.company !=='All' ? state.filterProducts = [...state.filterProducts].filter((curelem)=>(
             curelem.company === state.company
         )) : null;
+       },
+       // todo: implement color functionality
+       colorizer : (state, action) => {
+        state.color = action.payload;
+        // state.color !=='All' ? state.filterProducts = [...state.filterProducts].filter((curelem)=>(
+        //     curelem.colors
+    //     )) : null;
        }
     },
 
