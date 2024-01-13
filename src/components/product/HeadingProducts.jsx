@@ -19,7 +19,7 @@ function HeadingProducts() {
    
   return (
     <div className='flex flex-row justify-between py-5 px-3'>
-        <FiGrid className={`text-2xl m-1 cursor-pointer ${data.grid?'bg-slate-800 p-1 text-white':''}`} onClick={()=>dispatch(view(!data.grid))}/>
+        <FiGrid className={`text-2xl m-1 cursor-pointer ${data.grid?'bg-slate-800 p-0.5 text-white':''}`} onClick={()=>dispatch(view(!data.grid))}/>
         <div>Available Items are {data.filterProducts.length}</div>
         <div>
           <form action="#">
