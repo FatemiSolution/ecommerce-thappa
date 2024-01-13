@@ -11,7 +11,6 @@ function App() {
   const data =  useSelector((state)=>state.product)
   useEffect(() => {
     dispatch(getAllProducts())
-    // dispatch(fitering(data.products))       
   }, [])
  console.log(data);
   return (

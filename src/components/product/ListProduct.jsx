@@ -7,7 +7,6 @@ import ListView from './ListView';
 function ListProduct() {
     const dispatch = useDispatch();
     const data =  useSelector((state)=>state.product)
-
  return data.grid ?  <div className='grid grid-cols-3'>
         {
         data.filterProducts.map(product =>(

@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import Button from '../Button'
+
 import { fitering, sorted, sorting, view } from '../../store/productSlice'
 import { FiGrid } from "react-icons/fi";
 function HeadingProducts() {
     const dispatch = useDispatch()
    const data = useSelector((state)=>state.product)
-   const [defaultSelect, setdefaultSelect] = useState( 'lowest')
+   const [defaultSelect, setdefaultSelect] = useState(data.sort)
     console.log(data)
-    dispatch(sorting(event.target.value))
-  
- 
-
-      useEffect(() => {
-      //  dispatch(sorting(data.sort === undefined?'lowest':data.sort)) 
+    
+    
+    
+    useEffect(() => {
+        dispatch(sorting(defaultSelect))
         dispatch(sorted([...data.products]));
-      }, [data.sort])
+      }, [data.sort,defaultSelect])
     console.log(data.sort);
    
   return (
@@ -25,8 +24,8 @@ function HeadingProducts() {
         <div>
           <form action="#">
           <label htmlFor="sort"></label>
-          <select className='border border-black p-1' name="sort"defaultValue={defaultSelect} id="sort" onChange={()=>{setdefaultSelect(event.target.value); dispatch(sorting(defaultSelect))}}>
-            <option value="mixed">Mix</option>
+          <select className='border border-black p-1' name="sort"defaultValue={defaultSelect} id="sort" onChange={()=>{setdefaultSelect(event.target.value)}}>
+            {/* <option value="mixed">Mix</option> */}
             <option value="lowest">Price(lowest)</option>
             <option value="highest">Price(highest)</option>
             <option value="a-z">Price(A to Z)</option>
