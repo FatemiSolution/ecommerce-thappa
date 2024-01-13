@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fitering, sorted, sorting, view } from '../../store/productSlice'
+import { sorted, sorting, view } from '../../store/productSlice'
 import { FiGrid } from "react-icons/fi";
 function HeadingProducts() {
     const dispatch = useDispatch()
@@ -13,7 +13,7 @@ function HeadingProducts() {
     
     useEffect(() => {
         dispatch(sorting(defaultSelect))
-        dispatch(sorted([...data.products]));
+        dispatch(sorted([...data.filterProducts]));
       }, [data.sort,defaultSelect])
     console.log(data.sort);
    

@@ -18,6 +18,7 @@ import CartAmountToggle from "./CartAmountToggle";
 import ListProduct from "./product/ListProduct";
 import HeadingProducts from "./product/HeadingProducts";
 import ListView from "./product/ListView";
+import Filter from "./product/Filter";
 export {
     Button,
     HeroSection,
@@ -39,4 +40,5 @@ export {
     ListProduct,
     HeadingProducts,
     ListView,
+    Filter,
 }

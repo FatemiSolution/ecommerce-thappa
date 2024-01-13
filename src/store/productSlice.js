@@ -2,13 +2,13 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 const initialState = {
 products : [],
-view: null,
 grid: false,
 featureProducts : [],
 filterProducts : [],
 loading : false,
 error :null,
 sort: 'lowest',
+searchText : '',
 
 };
 // this is the code to fetch the product data from the api
@@ -40,9 +40,11 @@ const productSlice = createSlice({
         });
     },
     reducers:{
+        // grid and linear view functionality
         view : (state,action) =>{
             state.grid = action.payload;
         },
+        // sorting functionality
         sorting : (state,action) =>{
             state.sort = action.payload;
         },
@@ -57,9 +59,17 @@ const productSlice = createSlice({
                  state.filterProducts = [...action.payload].sort((a,b)=> b.price - a.price)
               
             }
-        }
+        },
+        //searching functionality from the products
+        searching :(state,action) => {
+            state.searchText = [action.payload]
+           state.searchText !==''? state.filterProducts = [...state.products].filter((curelem)=>(
+                curelem.name.toLowerCase().includes(state.searchText)
+            )):null
+        },
        
     },
+
 })
-export const {view,sorting,sorted} = productSlice.actions
+export const {view,sorting,sorted,searching} = productSlice.actions
 export default productSlice.reducer;

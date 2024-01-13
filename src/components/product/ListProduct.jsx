@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { fitering,sorting, sorted} from '../../store/productSlice';
+import React from 'react'
+import { useSelector } from 'react-redux';
 import Product from '../Product';
 import ListView from './ListView';
 // todo responsive for mobiles
 function ListProduct() {
-    const dispatch = useDispatch();
     const data =  useSelector((state)=>state.product)
  return data.grid ?  <div className='grid grid-cols-3'>
         {
