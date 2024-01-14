@@ -12,6 +12,9 @@ searchText : '',
 category: 'All',
 company: 'All',
 color:'All',
+maxPrice: 0,
+Price: 0,
+minPrice: 0,
 };
 // this is the code to fetch the product data from the api
 export const getAllProducts = createAsyncThunk('getproducts', async()=>{
@@ -88,9 +91,15 @@ const productSlice = createSlice({
         state.color !=='All' ? state.filterProducts = [...state.filterProducts].filter((curelem)=>(
             curelem.colors.includes(state.color)
         )) : null;
+       },
+       Prizer: (state, action) => {
+        state.Price = action.payload;
+       },
+       maxPrizer: (state, action) => {
+        state.maxPrice = action.payload;
        }
     },
 
 })
-export const {view,sorting,sorted,searching,categorizor,companier,colorizer} = productSlice.actions
+export const {view,sorting,sorted,searching,categorizor,companier,colorizer,Prizer,maxPrizer} = productSlice.actions
 export default productSlice.reducer;
