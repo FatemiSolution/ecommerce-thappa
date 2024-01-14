@@ -8,8 +8,8 @@ function MyImages({
     <div className='flex flex-row py-5 items-center justify-center px-5'>
         <div className='w-[30%] sm:h-[30%] flex  flex-col gap-4  items-center justify-center'>
           {images.map((image,index)=>(
-            <figure>
-              <img className='' src={image.url} alt={image.filename} key={index} onClick={()=>setmainImage(image)} />
+            <figure key={index}>
+              <img className='' src={image.url} alt={image.filename} onClick={()=>setmainImage(image)} />
             </figure>
           ))}
         </div>

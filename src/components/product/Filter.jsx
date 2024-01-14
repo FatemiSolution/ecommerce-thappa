@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch ,useSelector} from 'react-redux'
 import { TiTick } from "react-icons/ti";
-import { categorizor, companier, searching } from '../../store/productSlice';
+import { categorizor, colorizer, companier, searching } from '../../store/productSlice';
 function Filter() {
   const data = useSelector((state)=>state.product)
   const [text, settext] = useState(data.searchText);
@@ -15,7 +15,7 @@ function Filter() {
        return curElem[property];
      })
     if(property === 'colors'){
-        return Property =  ['All',...new Set([].concat(...Property))]
+        return Property =  [...new Set([].concat(...Property))]
     }else{
 
        return Property= ['All',...new Set(Property)]
@@ -30,8 +30,9 @@ function Filter() {
   useEffect(() => {
     dispatch(searching(text));
     dispatch(categorizor(category))
+    dispatch(colorizer(color))
     dispatch(companier(company))
-  }, [text,settext,category,setcategory,company,setcompany])
+  }, [text,settext,category,setcategory,company,setcompany,color,setcolor])
   console.log(category)
   return (
     <>
@@ -50,6 +51,9 @@ function Filter() {
       </select>
       <p className='gap-2 flex items-center'>
             Colors:
+            <button className={`rounded-full opacity-100 w-5 h-5 `} onClick={()=>setcolor('All')}>
+                  All
+                </button>
             {uniqueColor.map((Pcolor, index) =>(
                 // {'&ensp;'}
                 <button key={index} className={`rounded-full opacity-60 hover:opacity-100 w-5 h-5 ${Pcolor == color?'opacity-[100%]':'' }`} style={{backgroundColor:Pcolor}} onClick={()=>setcolor(Pcolor)}>

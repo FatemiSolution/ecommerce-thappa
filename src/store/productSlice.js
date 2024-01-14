@@ -85,12 +85,12 @@ const productSlice = createSlice({
        // todo: implement color functionality
        colorizer : (state, action) => {
         state.color = action.payload;
-        // state.color !=='All' ? state.filterProducts = [...state.filterProducts].filter((curelem)=>(
-        //     curelem.colors
-    //     )) : null;
+        state.color !=='All' ? state.filterProducts = [...state.filterProducts].filter((curelem)=>(
+            curelem.colors.includes(state.color)
+        )) : null;
        }
     },
 
 })
-export const {view,sorting,sorted,searching,categorizor,companier} = productSlice.actions
+export const {view,sorting,sorted,searching,categorizor,companier,colorizer} = productSlice.actions
 export default productSlice.reducer;
