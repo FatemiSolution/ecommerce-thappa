@@ -3,13 +3,16 @@ import { useDispatch ,useSelector} from 'react-redux'
 import { TiTick } from "react-icons/ti";
 import { Prizer, categorizor, colorizer, companier, maxPrizer, searching } from '../../store/productSlice';
 import FormatCurrency from '../formatCurrency';
+//todo need to set the price filter
 function Filter() {
   const data = useSelector((state)=>state.product)
   const [text, settext] = useState(data.searchText);
   const [category, setcategory] = useState(data.category)
   const [company, setcompany] = useState(data.company)
   const [color, setcolor] = useState(data.color)
-  const [price, setprice] = useState(data.Price)
+  // const priceArr = data.products.map((product)=> product.price)
+  // const maxPrice = Math.max.apply(null, priceArr);
+  // const [price, setprice] = useState(data.Price )
   const dispatch = useDispatch();
   // function to get the list of properties of the product
   const uniqueProperty = (product,property) =>{
@@ -28,22 +31,22 @@ function Filter() {
   const uniqueCategory = uniqueProperty(data.products,'category');
   const uniqueCompany = uniqueProperty(data.products,'company');
   const uniqueColor = uniqueProperty(data.products,'colors');
-  const priceArr = data.products.map((product)=> product.price)
-  const maxPrice = Math.max.apply(null, priceArr);
-    console.log(maxPrice)
-    dispatch(maxPrizer(maxPrice))
-  useEffect(() => {
-    dispatch(Prizer(parseInt(price)))
+  
+    // console.log(maxPrice)
+    useEffect(() => {
+    // dispatch(maxPrizer(maxPrice))
+    
+    // dispatch(Prizer(price))
     dispatch(searching(text));
     dispatch(categorizor(category))
     dispatch(colorizer(color))
     dispatch(companier(company))
-  }, [text,settext,category,setcategory,company,setcompany,color,setcolor,maxPrice,price,setprice]);
+  }, [text,settext,category,setcategory,company,setcompany,color,setcolor]);
   console.log(category)
   return (
     <div className='gap-4 flex flex-col'>
     <form action="" className='py-5 flex-wrap flex'>
-        <input type="text" placeholder='search box' value={text} className='border border-gray-600 h-auto max-w-44 w-auto' onChange={(e)=>settext(e.target.value)}/>
+        <input type="text" placeholder='search box' value={text} className='border border-gray-600 P-1 h-auto max-w-44 w-auto' onChange={(e)=>settext(e.target.value)}/>
     </form>
     <h3 className='font-semibold text-xl'>Category</h3>
       <div>{uniqueCategory.map((e)=>{
@@ -69,9 +72,9 @@ function Filter() {
             ))}
         </p>
         {/* price  */}
-      <FormatCurrency number={parseInt(price)}/>
+      <FormatCurrency number={parseInt(data.Price)}/>
               {/* <p>{price}</p> */}
-      <input type="range" name="price" min={data.minPrice} max={data.maxPrice} value={data.price} onChange={(e)=>setprice(e.target.value)} />
+      <input type="range" name="price" min={data.minPrice} max={data.maxPrice} value={data.Price} onChange={(e)=>dispatch(Prizer((e.target.value)))} />
     </div>
   )
 }

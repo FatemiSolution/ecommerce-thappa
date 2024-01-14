@@ -38,6 +38,8 @@ const productSlice = createSlice({
             state.featureProducts = action.payload.filter((product)=>product.featured === true);
             let temp = [...action.payload].sort((a,b)=> a.price - b.price)
             state.filterProducts = temp;
+            const priceArr = state.filterProducts.map((product)=> product.price)
+            state.maxPrice =  Math.max.apply(null, priceArr);
         });
        builder.addCase(getAllProducts.rejected,(state,action) =>{
             state.loading = false;
@@ -94,10 +96,13 @@ const productSlice = createSlice({
        },
        Prizer: (state, action) => {
         state.Price = action.payload;
+        state.filterProducts = [...state.filterProducts].filter((curelem)=>(
+            curelem.price <= state.Price
+        ))
        },
-       maxPrizer: (state, action) => {
-        state.maxPrice = action.payload;
-       }
+    //    maxPrizer: (state, action) => {
+    //     state.maxPrice = action.payload;
+    //    }
     },
 
 })
