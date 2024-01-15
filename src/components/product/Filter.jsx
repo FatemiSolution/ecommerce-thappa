@@ -10,10 +10,11 @@ function Filter() {
   const [category, setcategory] = useState(data.category)
   const [company, setcompany] = useState(data.company)
   const [color, setcolor] = useState(data.color)
-  // const priceArr = data.products.map((product)=> product.price)
-  // const maxPrice = Math.max.apply(null, priceArr);
-  // const [price, setprice] = useState(data.Price )
   const dispatch = useDispatch();
+  // const priceArr = [...data.products].map((product)=> product.price)
+  // data.maxPrice =  Math.max.apply(null, priceArr);
+  // data.Price = Math.max.apply(null, priceArr);
+
   // function to get the list of properties of the product
   const uniqueProperty = (product,property) =>{
     let Property = product.map((curElem)=>{
@@ -27,16 +28,12 @@ function Filter() {
     }
 
   }
-  // const fproducts = data.filterProducts;
+  
   const uniqueCategory = uniqueProperty(data.products,'category');
   const uniqueCompany = uniqueProperty(data.products,'company');
   const uniqueColor = uniqueProperty(data.products,'colors');
-  
-    // console.log(maxPrice)
+
     useEffect(() => {
-    // dispatch(maxPrizer(maxPrice))
-    
-    // dispatch(Prizer(price))
     dispatch(searching(text));
     dispatch(categorizor(category))
     dispatch(colorizer(color))
@@ -73,7 +70,7 @@ function Filter() {
         </p>
         {/* price  */}
       <FormatCurrency number={parseInt(data.Price)}/>
-              {/* <p>{price}</p> */}
+          
       <input type="range" name="price" min={data.minPrice} max={data.maxPrice} value={data.Price} onChange={(e)=>dispatch(Prizer((e.target.value)))} />
     </div>
   )

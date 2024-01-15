@@ -13,7 +13,6 @@ function HeadingProducts() {
     
     useEffect(() => {
         dispatch(sorting(defaultSelect))
-        dispatch(sorted([...data.filterProducts]));
       }, [data.sort,defaultSelect])
     console.log(data.sort);
    
@@ -24,7 +23,7 @@ function HeadingProducts() {
         <div>
           <form action="#">
           <label htmlFor="sort"></label>
-          <select className='border border-black p-1' name="sort"defaultValue={defaultSelect} id="sort" onChange={()=>{setdefaultSelect(event.target.value)}}>
+          <select className='border border-black p-1' name="sort"defaultValue={defaultSelect} id="sort" onChange={(e)=>{setdefaultSelect(e.target.value)}}>
             {/* <option value="mixed">Mix</option> */}
             <option value="lowest">Price(lowest)</option>
             <option value="highest">Price(highest)</option>

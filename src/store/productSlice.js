@@ -35,11 +35,12 @@ const productSlice = createSlice({
         builder.addCase(getAllProducts.fulfilled,(state,action) =>{
             state.loading = false;
             state.products = action.payload;
+            // state.filterProducts = action.payload;
             state.featureProducts = action.payload.filter((product)=>product.featured === true);
-            let temp = [...action.payload].sort((a,b)=> a.price - b.price)
-            state.filterProducts = temp;
-            const priceArr = state.filterProducts.map((product)=> product.price)
+            state.filterProducts =  [...action.payload].sort((a,b)=> a.price - b.price);
+            const priceArr = [...state.products].map((product)=> product.price)
             state.maxPrice =  Math.max.apply(null, priceArr);
+            state.Price = Math.max.apply(null, priceArr);
         });
        builder.addCase(getAllProducts.rejected,(state,action) =>{
             state.loading = false;
@@ -54,6 +55,16 @@ const productSlice = createSlice({
         // sorting functionality
         sorting : (state,action) =>{
             state.sort = action.payload;
+            if(state.sort === 'a-z'){
+                state.filterProducts = [...state.filterProducts].sort((a,b)=>a.name.localeCompare(b.name))
+            }else if(state.sort === 'z-a'){
+                state.filterProducts =[...state.filterProducts].sort((a,b)=>b.name.localeCompare(a.name))
+            }else if(state.sort === 'lowest'){
+                state.filterProducts =  [...state.filterProducts].sort((a,b)=> a.price - b.price)
+            }else if(state.sort === 'highest'){
+                 state.filterProducts = [...state.filterProducts].sort((a,b)=> b.price - a.price)
+              
+            }
         },
         sorted : (state,action) =>{
             if(state.sort === 'a-z'){
@@ -73,6 +84,7 @@ const productSlice = createSlice({
            state.searchText !==''? state.filterProducts = [...state.products].filter((curelem)=>(
                 curelem.name.toLowerCase().includes(state.searchText)
             )):null
+           
         },
         
        categorizor : (state, action) => {
@@ -96,13 +108,12 @@ const productSlice = createSlice({
        },
        Prizer: (state, action) => {
         state.Price = action.payload;
-        state.filterProducts = [...state.filterProducts].filter((curelem)=>(
+        let temp = [...state.products].filter((curelem)=>(
             curelem.price <= state.Price
-        ))
+        ));
+        state.filterProducts = temp;
        },
-    //    maxPrizer: (state, action) => {
-    //     state.maxPrice = action.payload;
-    //    }
+
     },
 
 })
