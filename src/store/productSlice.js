@@ -12,8 +12,8 @@ searchText : '',
 category: 'All',
 company: 'All',
 color:'All',
-maxPrice: 6000000,
-Price: 6000000,
+maxPrice: 0,
+Price: 0,
 minPrice: 0,
 };
 // this is the code to fetch the product data from the api
@@ -35,9 +35,10 @@ const productSlice = createSlice({
         builder.addCase(getAllProducts.fulfilled,(state,action) =>{
             state.loading = false;
             state.products = action.payload;
-            // state.filterProducts = action.payload;
             state.featureProducts = action.payload.filter((product)=>product.featured === true);
+            // default filterProduct to be in low price order 
             state.filterProducts =  [...action.payload].sort((a,b)=> a.price - b.price);
+            // getting the price and maxprice at the start
             const priceArr = [...state.products].map((product)=> product.price)
             state.maxPrice =  Math.max.apply(null, priceArr);
             state.Price = Math.max.apply(null, priceArr);
@@ -86,20 +87,21 @@ const productSlice = createSlice({
             )):null
            
         },
-        
+    //    function to update category filters
        categorizor : (state, action) => {
         state.category = action.payload
         state.category !=='All' ? state.filterProducts = [...state.filterProducts].filter((curelem)=>(
             curelem.category === state.category
         )):null;
        },
+    //    function to update company filters
        companier : (state, action) => {
         state.company = action.payload
         state.company !=='All' ? state.filterProducts = [...state.filterProducts].filter((curelem)=>(
             curelem.company === state.company
         )) : null;
        },
-       // todo: implement color functionality
+    //    function to update color filters
        colorizer : (state, action) => {
         state.color = action.payload;
         state.color !=='All' ? state.filterProducts = [...state.filterProducts].filter((curelem)=>(
@@ -110,6 +112,7 @@ const productSlice = createSlice({
         state.maxPrice = action.payload
         state.Price = action.payload
        },
+    //    function to update the price filter
        Prizer: (state, action) => {
         state.Price = action.payload;
         let temp = [...state.filterProducts].filter((curelem)=>(
