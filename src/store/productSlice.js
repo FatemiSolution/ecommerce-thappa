@@ -13,7 +13,7 @@ category: 'All',
 company: 'All',
 color:'All',
 maxPrice: 0,
-Price: 0,
+Price: 6000000,
 minPrice: 0,
 };
 // this is the code to fetch the product data from the api

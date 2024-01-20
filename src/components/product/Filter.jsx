@@ -3,6 +3,7 @@ import { useDispatch ,useSelector} from 'react-redux'
 import { TiTick } from "react-icons/ti";
 import { Prizer, categorizor, colorizer, companier, maxPrizer, searching } from '../../store/productSlice';
 import FormatCurrency from '../formatCurrency';
+import {Button} from '../../components'
 //todo need to set the price filter
 function Filter() {
   // getting data from the store 
@@ -41,6 +42,14 @@ const [price, setprice] = useState(data.Price)
     dispatch(Prizer(price))
   }, [text,settext,category,setcategory,company,setcompany,color,setcolor,price,setprice]);
   console.log(category)
+  const reset = () => {
+    settext('');
+    setprice(data.maxPrice);
+    setcolor('All');
+    setcategory('All');
+    setcompany('All');
+
+  }
   return (
     <div className='gap-4 flex flex-col'>
       {/* searching filter */}
@@ -74,7 +83,8 @@ const [price, setprice] = useState(data.Price)
         </p>
         {/* price  */}
       <FormatCurrency number={parseInt(data.Price)}/>
-      <input type="range" name="price" min={data.minPrice} max={data.maxPrice} value={price== 0 ? data.Price :price} onChange={(e)=>setprice(e.target.value)} />
+      <input type="range" name="price" min={data.minPrice} max={data.maxPrice} value={price=== 0 ? data.Price :price} onChange={(e)=>setprice(e.target.value)} />
+      <Button children='Reset Filter' className='text-xl' onClick={reset} />
     </div>
   )
 }
