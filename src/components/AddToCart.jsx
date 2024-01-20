@@ -29,7 +29,7 @@ function AddToCart({
             ))}
         </p>
         <CartAmountToggle decrement={decrement} increment = {increment} amount = {amount} className ={'py-2 pl-2'} />
-        <Button navigates={'/cart'} children='Add to Cart' onClick={()=>dispatch(addToCart({id,bgcolor,amount,product})) } />
+        <Button navigates={`/cart`} children='Add to Cart' onClick={()=>dispatch(addToCart({id,bgcolor,amount,product})) } />
     </div>
   )
 }
