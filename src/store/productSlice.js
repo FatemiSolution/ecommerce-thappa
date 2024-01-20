@@ -12,8 +12,8 @@ searchText : '',
 category: 'All',
 company: 'All',
 color:'All',
-maxPrice: 0,
-Price: 0,
+maxPrice: 6000000,
+Price: 6000000,
 minPrice: 0,
 };
 // this is the code to fetch the product data from the api
@@ -106,9 +106,13 @@ const productSlice = createSlice({
             curelem.colors.includes(state.color)
         )) : null;
        },
+       maxPrizer: (state,action) => {
+        state.maxPrice = action.payload
+        state.Price = action.payload
+       },
        Prizer: (state, action) => {
         state.Price = action.payload;
-        let temp = [...state.products].filter((curelem)=>(
+        let temp = [...state.filterProducts].filter((curelem)=>(
             curelem.price <= state.Price
         ));
         state.filterProducts = temp;
