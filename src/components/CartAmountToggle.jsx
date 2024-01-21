@@ -8,7 +8,7 @@ function CartAmountToggle({
     className,
 }) {
   return (
-    <div className={`flex gap-5 items-center ${className}`}>
+    <div className={`flex gap-5 items-center h-fit ${className}`}>
         <FaMinus className='cursor-pointer text-black' onClick={()=>{decrement()}} />
         <span className='text-xl text-blue-500'>{amount}</span>
         <FaPlus  className='cursor-pointer text-black'  onClick={()=>{increment()}}/>

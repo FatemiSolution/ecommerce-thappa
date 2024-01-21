@@ -19,6 +19,7 @@ import ListProduct from "./product/ListProduct";
 import HeadingProducts from "./product/HeadingProducts";
 import ListView from "./product/ListView";
 import Filter from "./product/Filter";
+import CartDetails from "./CartDetails";
 export {
     Button,
     HeroSection,
@@ -41,4 +42,5 @@ export {
     HeadingProducts,
     ListView,
     Filter,
+    CartDetails,
 }

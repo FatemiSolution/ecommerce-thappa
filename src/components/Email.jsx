@@ -35,7 +35,7 @@ function Email() {
         field="message"
         errors={state.errors}
       />
-           <Button children='submit' className='ml-60' disabled={state.submitting}  type='submit'/> 
+           <button children='submit' className='ml-60 px-3 py-2 rounded bg-blue-400 text-white' disabled={state.submitting}  type='submit'/> 
         </form>  
     </div>
   )
