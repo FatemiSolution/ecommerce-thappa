@@ -14,13 +14,13 @@ function App() {
   }, [])
 //  console.log(data);
   return (
-   <>
+   <div className=''>
    <Header/>
    <main>
     <Outlet/>
    </main>
    <Footer/>
-   </>
+   </div>
   )
 }
 
