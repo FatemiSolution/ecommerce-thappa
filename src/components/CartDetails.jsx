@@ -3,19 +3,23 @@ import FormatCurrency from './formatCurrency'
 import CartAmountToggle from './CartAmountToggle'
 import { useState } from 'react';
 import { MdDelete } from "react-icons/md";
-import { removeitem } from '../store/cartSlice';
-import { useDispatch } from 'react-redux';
+import { decrements, increments, removeitem } from '../store/cartSlice';
+import { useDispatch,useSelector } from 'react-redux';
 function CartDetails({
    product,
     
 }) {
     const dispatch = useDispatch();
-    // const [amount, setamount] = useState(product.amount);
+    const data = useSelector((state)=>state.cart.cart)
+    const [amount, setamount] = useState(product.amount);
     const increment = () =>{
-        // amount < product.max ? setamount(amount + 1) : setamount(product.max);
+        amount < product.max ? setamount(amount + 1) : setamount(product.max);
+    //   //  dispatch(increment(product.id))
+    console.log(amount)
     }
     const decrement = () =>{
-        // amount > 1 ? setamount(amount - 1) : setamount(amount);
+        amount > 1 ? setamount(amount - 1) : setamount(amount);
+        console.log(amount)
     }
   return (
     <div>
@@ -28,7 +32,7 @@ function CartDetails({
             </div>
         </div>
         <div className='pl-[50px] hidden md:block'><FormatCurrency number={product.price}/></div>
-        <div className='flex justify-center'><CartAmountToggle decrement={decrement} increment = {increment} amount = {product.amount}/></div>
+        <div className='flex justify-center'><CartAmountToggle decrement={()=>dispatch(decrements(product.id))} increment = {()=>dispatch(increments(product.id))} amount = {product.amount}/></div>
         <div className='pl-16 hidden md:block'><FormatCurrency number={product.price * product.amount} /></div>
         <div className='flex justify-center' ><MdDelete className='text-red-600 text-2xl cursor-pointer' onClick={()=>dispatch(removeitem(product.id)) } /></div>
         </div>
