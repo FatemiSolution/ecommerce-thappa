@@ -28,7 +28,12 @@ const cartSlice = createSlice({
                 price : product.price,
                 max : product.stock,
             }
-            state.cart = [...state.cart, details]
+            const item = state.cart.find((item) => item.id === details.id);
+            if(item  ){
+               if(item.max >= item.amount + details.amount)  item.amount += details.amount;
+              
+            }else state.cart = [...state.cart, details];
+            
             localStorage.setItem('cart', JSON.stringify(state.cart));
             console.log(state.cart)
         
