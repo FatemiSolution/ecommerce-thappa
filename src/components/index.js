@@ -9,7 +9,7 @@ import Input from "./Input";
 import Email from "./Email";
 import TextArea from "./TextArea";
 import Footer from "./Footer";
-import FormatCurrency from "./formatCurrency";
+import FormatCurrency from "./FormatCurrency";
 import MyImages from "./MyImages";
 import ProductDetails from "./ProductDetails";
 import RatingStar from "./RatingStar";

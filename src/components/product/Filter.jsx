@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch ,useSelector} from 'react-redux'
 import { TiTick } from "react-icons/ti";
 import { Prizer, categorizor, colorizer, companier, maxPrizer, searching } from '../../store/productSlice';
-import FormatCurrency from '../formatCurrency';
+import FormatCurrency from '../FormatCurrency';
 import {Button} from '../../components'
 //todo need to set the price filter
 function Filter() {

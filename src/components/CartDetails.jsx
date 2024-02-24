@@ -1,5 +1,6 @@
 import React from 'react'
-import FormatCurrency from './formatCurrency'
+// import FormatCurrency from './formatCurrency'
+import FormatCurrency from './FormatCurrency';
 import CartAmountToggle from './CartAmountToggle'
 import { useState } from 'react';
 import { MdDelete } from "react-icons/md";
@@ -9,18 +10,7 @@ function CartDetails({
    product,
     
 }) {
-    const dispatch = useDispatch();
-    const data = useSelector((state)=>state.cart.cart)
-    const [amount, setamount] = useState(product.amount);
-    const increment = () =>{
-        amount < product.max ? setamount(amount + 1) : setamount(product.max);
-    //   //  dispatch(increment(product.id))
-    console.log(amount)
-    }
-    const decrement = () =>{
-        amount > 1 ? setamount(amount - 1) : setamount(amount);
-        console.log(amount)
-    }
+    const dispatch = useDispatch(); 
   return (
     <div>
          <div className='grid py-5 grid-cols-5 '>

@@ -45,18 +45,18 @@ function Cart() {
 <div className='flex justify-end w-[90vw]'>
   
   <div className=''>
-  <div class="container mx-auto">
-  <div class="flex justify-between w-full px-8 py-4 bg-gray-200">
-    <div class="text-sm">Subtotal</div>
-    <div class="ml-4 text-sm"><FormatCurrency number={data.total_price}/></div>
+  <div className="container mx-auto">
+  <div className="flex justify-between w-full px-8 py-4 bg-gray-200">
+    <div className="text-sm">Subtotal</div>
+    <div className="ml-4 text-sm"><FormatCurrency number={data.total_price}/></div>
   </div>
-  <div class="flex justify-between w-full px-8 py-4 bg-gray-100">
-    <div class="text-sm">Shipping Fees</div>
-    <div class="ml-4 text-sm"><FormatCurrency number={data.shipping_fees}/></div>
+  <div className="flex justify-between w-full px-8 py-4 bg-gray-100">
+    <div className="text-sm">Shipping Fees</div>
+    <div className="ml-4 text-sm"><FormatCurrency number={data.shipping_fees}/></div>
   </div>
-  <div class="flex justify-between  w-full px-8 py-4 bg-gray-200">
-    <div class="text-lg">Total</div>
-    <div class="ml-4 text-lg"><FormatCurrency number={data.shipping_fees + data.total_price}/></div>
+  <div className="flex justify-between  w-full px-8 py-4 bg-gray-200">
+    <div className="text-lg">Total</div>
+    <div className="ml-4 text-lg"><FormatCurrency number={data.shipping_fees + data.total_price}/></div>
   </div>
 </div>
 
