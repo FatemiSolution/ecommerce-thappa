@@ -1,14 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
 import { FaBagShopping } from "react-icons/fa6";
+import { useDispatch,useSelector } from 'react-redux';
+import { totalCal } from '../../store/cartSlice';
 const Nav =()=>{
     const [isOpen, setIsOpen] = useState(false);
     const toggleNavbar = () => {
         setIsOpen(!isOpen);
     };
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(totalCal())
+    }, [totalCal()])
+    const data = useSelector((state)=>state.cart)
     function NavLinks() {
+      
       return (
         <>
         <NavLink className={'py-2 px-1 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar}  to={'/'}>Home</NavLink>
@@ -17,13 +25,12 @@ const Nav =()=>{
         <NavLink className={'py-2 px-1 hover:text-blue-500 duration-200'}  onClick={isOpen && toggleNavbar} to={'/contact'}>Contact</NavLink>
         <NavLink className={'relative py-2 px-1 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar} to={'/cart'}>
                    <FaBagShopping className=''/>
-                <span className='absolute bottom-4 left-3 text-xs'>10</span>
+                <span className='absolute bottom-4 left-3 text-xs'>{data.total_items}</span>
                </NavLink>
         
         </>
       )
     }
-
     return(
         <>
         

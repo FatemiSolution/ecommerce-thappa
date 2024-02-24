@@ -8,7 +8,7 @@ const getlocalCartData = ()=>{
 const initialState ={
     cart : getlocalCartData(),
     total_items :'',
-    total_amount :'',
+    total_price :0,
     shipping_fees : 5000,
 }
 //todo create increment and decrement products functionality
@@ -28,8 +28,9 @@ const cartSlice = createSlice({
                 price : product.price,
                 max : product.stock,
             }
+            // making sure no extra items entry is created
             const item = state.cart.find((item) => item.id === details.id);
-            if(item  ){
+            if(item){ // adding item amount of the new shopping
                if(item.max >= item.amount + details.amount)  item.amount += details.amount;
               
             }else state.cart = [...state.cart, details];
@@ -51,6 +52,8 @@ const cartSlice = createSlice({
                 item.amount += 1;
             }
             localStorage.setItem('cart', JSON.stringify(state.cart));
+            state.total_price = [...state.cart].reduce((acc, item) =>{return acc + item.price},0);
+
         },
         // decrement amount in the cart 
         decrements: (state, action) => {
@@ -59,10 +62,17 @@ const cartSlice = createSlice({
                 item.amount -= 1;
             }
             localStorage.setItem('cart', JSON.stringify(state.cart));
+            state.total_price = [...state.cart].reduce((acc, item) =>{return acc + item.price},0);
+
         }, 
         clearCart: (state, action) => {
             state.cart = [];
             localStorage.setItem('cart', JSON.stringify(state.cart));
+        },
+        totalCal : (state) => {
+            state.total_items = [...state.cart].reduce((acc, item) =>{return acc + item.amount},0);
+            state.total_price = [...state.cart].reduce((acc, item) =>{return acc + item.price* item.amount},0);
+
         }
       
         
@@ -70,5 +80,5 @@ const cartSlice = createSlice({
     
 
 })
-export const {addToCart,removeitem,increments,decrements,clearCart}= cartSlice.actions;
+export const {addToCart,removeitem,increments,decrements,clearCart,totalCal}= cartSlice.actions;
 export default cartSlice.reducer;

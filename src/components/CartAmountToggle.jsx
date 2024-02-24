@@ -9,9 +9,16 @@ function CartAmountToggle({
 }) {
   return (
     <div className={`flex gap-5 items-center h-fit ${className}`}>
+      <button>
+
         <FaMinus className='cursor-pointer text-black' onClick={()=>{decrement()}} />
+      </button>
         <span className='text-xl text-blue-500'>{amount}</span>
+        <button>
+
         <FaPlus  className='cursor-pointer text-black'  onClick={()=>{increment()}}/>
+        </button>
+       
     </div>
   )
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-import { CartDetails } from '../components'
+import { CartDetails, FormatCurrency } from '../components'
 import {Button} from '../components'
 import { clearCart } from '../store/cartSlice'
 function Cart() {
   // const cartData = useSelector((state)=> state.cart);
-  const data = useSelector((state)=>state.cart.cart)
+  const data = useSelector((state)=>state.cart)
   const dispatch = useDispatch();
   // const clearStorage = ()=>{
   //   localStorage.clear();
@@ -13,7 +13,7 @@ function Cart() {
 
   //   }
   // }
- return  data.length !==0? (
+ return  data.cart.length !==0? (
     <>
     
     <div className='lg:mx-80 h-[70vh] md:mx-52 mx-5'>
@@ -26,7 +26,7 @@ function Cart() {
       </div>
       <hr className='text-xl font-bold' />
       <div>
-        {data.map((curElem)=>{
+        {data.cart.map((curElem)=>{
           return <CartDetails key={curElem.id} product = {curElem}/>
         })}
       </div>
@@ -40,6 +40,31 @@ function Cart() {
         
 
     </div>
+ 
+{/* //todo  =currrency card */}
+<div className='flex justify-end w-[90vw]'>
+  
+  <div className=''>
+  <div class="container mx-auto">
+  <div class="flex justify-between w-full px-8 py-4 bg-gray-200">
+    <div class="text-sm">Subtotal</div>
+    <div class="ml-4 text-sm"><FormatCurrency number={data.total_price}/></div>
+  </div>
+  <div class="flex justify-between w-full px-8 py-4 bg-gray-100">
+    <div class="text-sm">Shipping Fees</div>
+    <div class="ml-4 text-sm"><FormatCurrency number={data.shipping_fees}/></div>
+  </div>
+  <div class="flex justify-between  w-full px-8 py-4 bg-gray-200">
+    <div class="text-lg">Total</div>
+    <div class="ml-4 text-lg"><FormatCurrency number={data.shipping_fees + data.total_price}/></div>
+  </div>
+</div>
+
+  </div>
+  
+
+</div>
+
     </>
   ):(
   <div className='h-[70vh] '>
