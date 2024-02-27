@@ -4,6 +4,8 @@ import { TiTick } from "react-icons/ti";
 import { Prizer, categorizor, colorizer, companier, maxPrizer, searching } from '../../store/productSlice';
 import FormatCurrency from '../FormatCurrency';
 import {Button} from '../../components'
+import { ImCross } from "react-icons/im";
+import { useMediaQuery } from 'react-responsive';
 //todo need to set the price filter
 function Filter() {
   // getting data from the store 
@@ -15,7 +17,7 @@ function Filter() {
   const [color, setcolor] = useState(data.color)
 const [price, setprice] = useState(data.Price)
   const dispatch = useDispatch();
-
+  const isMobile = useMediaQuery({ maxWidth: 880 });
   // function to get the list of properties of the product
   const uniqueProperty = (product,property) =>{
     let Property = product.map((curElem)=>{
@@ -40,6 +42,7 @@ const [price, setprice] = useState(data.Price)
     dispatch(colorizer(color))
     dispatch(companier(company))
     dispatch(Prizer(price))
+   
   }, [text,settext,category,setcategory,company,setcompany,color,setcolor,price,setprice]);
   console.log(category)
   const reset = () => {
@@ -48,12 +51,24 @@ const [price, setprice] = useState(data.Price)
     setcolor('All');
     setcategory('All');
     setcompany('All');
-
+    isMobile && filtershow();
   }
+  const filtershow=() =>{
+    if(document.getElementById('filters').classList.contains('-left-96')) {
+     document.getElementById('filters').classList.remove('-left-96');
+     document.getElementById('filters').classList.add('left-0');
+    }else{
+     document.getElementById('filters').classList.add('-left-96');
+     document.getElementById('filters').classList.remove('left-0');
+    }
+    
+    }
   return (
-    <div className='gap-4 flex flex-col'>
+    <div className='gap-4 py-5 flex flex-col'>
+    
+       {/* <Button children="close" }/> */}
       {/* searching filter */}
-    <form action="" className='py-5 flex-wrap flex'>
+    <form action="" className='py-3 flex-wrap flex'>
         <input type="text" placeholder='search box' value={text} className='border border-gray-600 P-1 h-auto max-w-44 w-auto' onChange={(e)=>settext(e.target.value)}/>
     </form>
     {/* // category filter */}
@@ -84,7 +99,8 @@ const [price, setprice] = useState(data.Price)
         {/* price  */}
       <FormatCurrency number={parseInt(data.Price)}/>
       <input type="range" name="price" min={data.minPrice} max={data.maxPrice} value={price=== 0 ? data.Price :price} onChange={(e)=>setprice(e.target.value)} />
-      <Button children='Reset Filter' className='text-xl' onClick={reset} />
+      <Button children='Reset Filter' className='text-xl' navigates={'/products'} onClick={reset} />
+     
     </div>
   )
 }

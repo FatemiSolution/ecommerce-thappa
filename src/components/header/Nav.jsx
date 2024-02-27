@@ -1,13 +1,14 @@
 import React, { useState,useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
+// import { ImCross } from "react-icons/im";
 import { useAuth0 } from "@auth0/auth0-react";
 import { ImCross } from "react-icons/im";
 import { FaBagShopping } from "react-icons/fa6";
 import { useDispatch,useSelector } from 'react-redux';
 import { totalCal } from '../../store/cartSlice';
 import Button from '../Button';
-
+import {Filter} from '../index';
 const Nav =()=>{
     // login logout functionality
     const { loginWithRedirect,logout, isAuthenticated } = useAuth0();
@@ -44,9 +45,22 @@ const Nav =()=>{
         </>
       )
     }
+    const filtershow=() =>{
+        if(document.getElementById('filters').classList.contains('-left-96')) {
+         document.getElementById('filters').classList.remove('-left-96');
+         document.getElementById('filters').classList.add('left-0');
+        }else{
+         document.getElementById('filters').classList.add('-left-96');
+         document.getElementById('filters').classList.remove('left-0');
+        }
+        
+        }
     return(
         <>
-        
+           <div id='filters' className='w-48 absolute z-10 bg-gray-200 -left-96 top-0 '>
+           <button className='p-4' onClick={filtershow} ><ImCross /></button>
+           <Filter/>
+           </div>
         <nav className=' flex justify-end'>
             <div className='hidden w-[100%] gap-2 sm:flex justify-between items-center '>
                 <NavLinks/>
@@ -60,6 +74,7 @@ const Nav =()=>{
                 <NavLinks/>
             </div>
         )}
+     
         </>
     )
 }
