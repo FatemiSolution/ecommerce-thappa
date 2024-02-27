@@ -55,7 +55,7 @@ const Nav =()=>{
             </div>
         </nav>
         {isOpen && (
-            <div className=' sm:hidden flex basis-full flex-col items-center ' >
+            <div className='sm:hidden flex basis-full flex-col items-center ' >
                 <NavLinks/>
             </div>
         )}

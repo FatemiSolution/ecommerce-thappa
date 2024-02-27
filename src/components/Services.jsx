@@ -9,7 +9,7 @@ function Services() {
         <div className='lg:mx-52 flex h-72 py-10    '>
             <div className='w-1/3 md:mx-5 mx-2 bg-gray-300 flex flex-col justify-center items-center rounded-3xl'>
                 
-                    <CiDeliveryTruck  className=' text-5xl m-3 bg-white rounded-3xl text-blue-700 p-2'/>
+                    <CiDeliveryTruck  className=' text-3xl xl:text-5xl m-3 bg-white rounded-3xl text-blue-700 p-2'/>
                     <span className='font-semibold'>Super Fast and Free Delivery.</span>
             </div>
             <div className='w-1/3  md:mx-5 mx-2 '>

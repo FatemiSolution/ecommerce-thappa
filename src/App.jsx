@@ -12,16 +12,15 @@ function App() {
   useEffect(() => {
     dispatch(getAllProducts())
   }, [])
-//  console.log(data);
   return (
-   <div className=''>
+   <>
    <Header/>
-   <main>
-    <Outlet/>
-   </main>
+    <main>
+      <Outlet/>
+    </main>
    <Footer/>
-   </div>
-  )
+   </>
+    )
 }
 
 export default App

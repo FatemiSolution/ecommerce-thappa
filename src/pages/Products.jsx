@@ -1,10 +1,6 @@
 import React, { useEffect } from 'react'
 import { Filter, HeadingProducts, ListProduct } from '../components';
 function Products() {
- 
-
-
-
 
   return (
     <div className='flex lg:px-56 md:px-5'>
