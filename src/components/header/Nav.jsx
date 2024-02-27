@@ -7,6 +7,7 @@ import { FaBagShopping } from "react-icons/fa6";
 import { useDispatch,useSelector } from 'react-redux';
 import { totalCal } from '../../store/cartSlice';
 import Button from '../Button';
+
 const Nav =()=>{
     // login logout functionality
     const { loginWithRedirect,logout, isAuthenticated } = useAuth0();

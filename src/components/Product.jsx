@@ -12,7 +12,7 @@ function Product({
         <img className=' flex  items-center rounded-t-xl justify-center lg:h-52' src={details.image} alt={details.name} />
         <figcaption className='absolute top-2 right-2 bg-white border rounded-xl px-2 border-spacing-4'>{details.category}</figcaption>
     </figure>
-    <div className='grid grid-cols-2 px-2 py-1 justify-around'>
+    <div className='flex grid-cols-2 px-2 py-1 justify-around'>
         <h3 className='font-semibold '>{details.name}</h3>
         <p className='text-right'><FormatCurrency number={details.price}/></p>
     </div>

@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useMediaQuery } from 'react-responsive';
 
 import { sorted, sorting, view } from '../../store/productSlice'
 import { FiGrid } from "react-icons/fi";
 function HeadingProducts() {
     const dispatch = useDispatch()
+    const isDesktop = useMediaQuery({ minWidth: 992 });
+  const isTablet = useMediaQuery({ minWidth: 880 });
+  const isMobile = useMediaQuery({ maxWidth: 880 });
    const data = useSelector((state)=>state.product)
    const [defaultSelect, setdefaultSelect] = useState(data.sort)
     console.log(data)
     
+    useEffect(() => {
+      isMobile && dispatch(view(true))
+    }, [view()])
     
     
     useEffect(() => {
@@ -18,7 +25,7 @@ function HeadingProducts() {
    
   return (
     <div className='flex flex-row justify-between py-5 px-3'>
-        <FiGrid className={`text-2xl m-1 cursor-pointer ${data.grid?'bg-slate-800 p-0.5 text-white':''}`} onClick={()=>dispatch(view(!data.grid))}/>
+       {isTablet && <FiGrid className={`text-2xl m-1 cursor-pointer ${data.grid?'bg-slate-800 p-0.5 text-white':''}`} onClick={()=>dispatch(view(!data.grid))}/> } 
         <div>Available Items are {data.filterProducts.length}</div>
         <div>
           <form action="#">
