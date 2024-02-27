@@ -6,3 +6,46 @@
     font-size: 18px;
     font-weight: 600;
 }
+/* hero section  */
+.hero{
+    background-image: url(images/hero4.png);
+    background-size: cover;
+    height: 90vh;
+    width: 100%;
+    background-position:  center 5%  ;
+    padding: 0 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+} 
+.hero h4 {
+    padding-bottom: 10px;
+    
+}
+.hero h1 {
+    color: rgb(16, 160, 112); 
+}
+.hero p {
+    padding: 10px;
+
+}
+.hero button {
+    background-image: url(images/button.png);
+    background-size: cover;
+    padding: 10px 60px;
+    border: none;
+    background-color: transparent;
+    color:  rgb(16, 160, 112);
+    background-repeat: no-repeat;
+    font-size: 20px;
+    font-weight:700;
+    cursor: pointer;
+}
+@media only screen and (max-width: 1000px) {
+    .hero{
+        background-image: url(images/hero4_small.png);
+        padding: 0 40px;
+    }
+}
