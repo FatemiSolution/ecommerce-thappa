@@ -19,8 +19,7 @@ function HeroSection({
     //     </div>
     // </div>
   <section className="hero"style={{}}>
- <img src="public\images\hero.jpg" alt="" srcset="" />
-
+ 
 
   <h4 className='font-semibold text-2xl  py-2'>Trade-in-offer</h4>
   <h2 className='font-bold text-5xl py-2'>Super Value Deals</h2>
