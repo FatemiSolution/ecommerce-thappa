@@ -29,15 +29,15 @@ const Nav =()=>{
       
       return (
         <>
-        <NavLink className={'py-2 px-1 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar}  to={'/'}>Home</NavLink>
-        <NavLink className={'py-2 px-1 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar}  to={'/about'}>About</NavLink>
-        <NavLink  className={'py-2 px-1 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar} to={'/products'}>Products</NavLink>
-        <NavLink className={'py-2 px-1 hover:text-blue-500 duration-200'}  onClick={isOpen && toggleNavbar} to={'/contact'}>Contact</NavLink>
+        <NavLink className={'py-2 px-1 hover:text-[#008DDA] duration-200'} onClick={isOpen && toggleNavbar}  to={'/'}>Home</NavLink>
+        <NavLink className={'py-2 px-1 hover:text-[#008DDA] duration-200'} onClick={isOpen && toggleNavbar}  to={'/about'}>About</NavLink>
+        <NavLink  className={'py-2 px-1 hover:text-[#008DDA] duration-200'} onClick={isOpen && toggleNavbar} to={'/products'}>Products</NavLink>
+        <NavLink className={'py-2 px-1 hover:text-[#008DDA] duration-200'}  onClick={isOpen && toggleNavbar} to={'/contact'}>Contact</NavLink>
             {/* for authButton */}
         {isAuthenticated ? <Button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })} children='Logout'/>:<Button onClick={() => loginWithRedirect()} children='Login'/> }
         
        {/* cart  */}
-        <NavLink className={'relative py-2 px-1 hover:text-blue-500 duration-200'} onClick={isOpen && toggleNavbar} to={'/cart'}>
+        <NavLink className={'relative py-2 px-1 hover:text-blue-600 duration-200'} onClick={isOpen && toggleNavbar} to={'/cart'}>
                    <FaBagShopping className=''/>
                 <span className='absolute bottom-4 bg-blue-400 text-gray-100 rounded-lg px-1  left-3 text-xs'>{data.total_items}</span>
         </NavLink>
