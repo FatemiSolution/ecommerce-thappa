@@ -17,8 +17,8 @@ function Footer() {
             <Button children='Get Started' className='bg-blue-500 md:px-3 md:py-2 text-white font-semibold rounded-lg' navigates={'/contact'} />
         </div> 
         </div>
-        {/* main footer  */}
-        <footer className='flex md:flex-row md:h-56 h-[34rem] flex-col 008DDA bg-[#008DDA] lg:px-[20%] md:px-[5%] gap-5 px-[10%]  md:p-auto'>
+        {/* main footer bg-[#008DDA]  */}
+        <footer className='flex md:flex-row md:h-56 h-[34rem] flex-col 008DDA bg-gray-400 lg:px-[20%] md:px-[5%] gap-5 px-[10%]  md:p-auto'>
             <div className=' mt-20'>
                 <p className=' text-base'>Fatemi Solutions</p>
                 <p className='mt-3 text-sm  ' >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis ducimus cupiditate.
@@ -45,7 +45,7 @@ function Footer() {
             </div>
         </footer>
         <hr />
-        <div className=' grid grid-cols-2 gap-20 bg-[#008DDA] justify-center lg:px-[30%] px-[20%] pt-2 pb-4'>
+        <div className=' grid grid-cols-2 gap-20 bg-gray-400 justify-center lg:px-[30%] px-[20%] pt-2 pb-4'>
             <div>@{new Date().getFullYear()} Fatemi Solution. All right Reserved</div>
             <div className='flex flex-col'>
                 <span>PRIVACY POLICY</span>

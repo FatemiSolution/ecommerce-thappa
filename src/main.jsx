@@ -51,8 +51,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       redirect_uri: window.location.origin
     }}
   >
+    {/* React.StrictMode: Wraps the entire application to enable strict mode checks.? */}
   <React.StrictMode>
+    {/* Provider: Wraps the application to provide the Redux store to all components. */}
     <Provider store={store}>
+    {/* RouterProvider: Wraps the application to provide routing capabilities */}
     <RouterProvider router={router}/>
     </Provider>
   </React.StrictMode>

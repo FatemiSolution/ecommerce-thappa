@@ -94,7 +94,7 @@ const [price, setprice] = useState(data.Price)
                 <button key={index} className={`rounded-full opacity-60 hover:opacity-100 w-5 h-5 ${Pcolor == color?'opacity-[100%]':'' }`} style={{backgroundColor:Pcolor}} onClick={()=>setcolor(Pcolor)}>
                     {Pcolor === color ?<TiTick className='text-white pl-1' />: null }
                 </button>
-            ))}
+            ))} 
         </p>
         {/* price  */}
       <FormatCurrency number={parseInt(data.Price)}/>

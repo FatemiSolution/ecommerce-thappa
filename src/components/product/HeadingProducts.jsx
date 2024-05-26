@@ -13,16 +13,18 @@ function HeadingProducts() {
    const data = useSelector((state)=>state.product)
    const [defaultSelect, setdefaultSelect] = useState(data.sort)
     console.log(data)
-    
+    // setting gridview to true  if the size is of mobile screen 
     useEffect(() => {
       isMobile && dispatch(view(true))
     }, [view()])
     
-    
+    //setting datasort
     useEffect(() => {
         dispatch(sorting(defaultSelect))
       }, [data.sort,defaultSelect])
+
     console.log(data.sort);
+    // to view and hide the filter section
    const filtershow=() =>{
    if(document.getElementById('filters').classList.contains('-left-96')) {
     document.getElementById('filters').classList.remove('-left-96');
